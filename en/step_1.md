@@ -1,59 +1,62 @@
-## Introduction
+In the Hierarchy window select the 'Main Camera' object. 
 
-Add project description here. What will learners be making? Broadly what skills will they be learning?
-
-### What you will make
-
---- no-print ---
-Add instructions for interacting with the embedded content here.
-
-<div class="scratch-preview">
-  <iframe allowtransparency="true" width="485" height="402" src="https://scratch.mit.edu/projects/embed/160619869/?autostart=false" frameborder="0"></iframe>
-</div>
---- /no-print ---
-
---- print-only ---
-![Complete project](images/showcase_static.png)
---- /print-only ---
+Over in the Inspector click **Add Component** and add the `CameraRotate` script component. 
 
 --- collapse ---
+
 ---
-title: What you will need
+title: I dont have a CameraRotate script
 ---
-### Hardware
 
-+ A computer or tablet capable of running Scratch 3
+In the AddComponent box hit <kbd>Enter</kbd> twice to create a new script called `CameraRotate`. 
 
-### Software
+The new script will appear in your Assets folder. Move it into the 'Scripts' folder to organise your files. 
 
-+ Scratch 3 (either [online](https://scratch.mit.edu/){:target="_blank"} or [offline](https://scratch.mit.edu/download){:target="_blank"})
-+ Python 3
-+ This project can be completed in a web browser using [trinket.io](https://trinket.io/)
+Open the `CameraRotate` script in your script editor and type or copy and paste the following code. 
 
-### Downloads
+--- code ---
+---
+language: cs
+filename: CameraRotate.cs
+line_numbers: true
+line_number_start: 1
+line_highlights: 7, 20-27
+---
 
-+ Download the project [starter file](https://rpf.io/p/en/projectName-go){:target="_blank"} if working offline
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class CameraRotate : MonoBehaviour
+{
+  public GameObject ball;
+  public float sensitivity = 5f;
+
+  void Start()
+  {
+      // Focus the camera on the Ball
+      transform.LookAt(ball.transform);
+  }
+
+  void Update()
+  {
+      //If the left mouse button held down, rotate the camera using mouse position
+      if (Input.GetKey("mouse 0"))
+      {
+          float mouse = Input.GetAxis("Mouse Y");
+          transform.Rotate(new Vector3(mouse * sensitivity * -1, 0, 0));
+          float look = Input.GetAxis("Mouse X") * sensitivity;
+          transform.RotateAround(ball.transform.position, Vector3.up, look);
+      } 
+  }
+}
+
+--- /code ---
+
+Save your script and switch back to the Unity editor.
 
 --- /collapse ---
 
---- collapse ---
----
-title: What you will learn
----
+In the Inspector set the 'Ball' variable of the `CameraRotate` script by dragging the sphere from the Hierarchy window onto the box. 
 
-+ Learning objective 1
-+ Learning objective 2
-+ Learning objective 3
-
---- /collapse ---
-
---- collapse ---
----
-title: Additional information for educators
----
-
-You can download the completed project [here](https://rpf.io/p/en/projectName-get){:target="_blank"}.
-
-If you need to print this project, please use the [printer-friendly version](https://projects.raspberrypi.org/en/projects/projectName/print){:target="_blank"}.
-
---- /collapse ---
+![The CameraRotate component with the Ball object set correctly.](images/camera-rotate-component.png)
