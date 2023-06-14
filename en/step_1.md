@@ -5,14 +5,14 @@ Over in the Inspector click **Add Component** and add the `CameraRotate` script 
 --- collapse ---
 
 ---
-title: I dont have a CameraRotate script
+title: I don't have a CameraRotate script
 ---
 
-In the AddComponent box hit <kbd>Enter</kbd> twice to create a new script called `CameraRotate`. 
+In the AddComponent box click <kbd>Enter</kbd> twice to create a new script called `CameraRotate`. 
 
-The new script will appear in your Assets folder. Move it into the 'Scripts' folder to organise your files. 
+The new script will appear in your Assets folder. Move it into the Scripts folder to organise your files. 
 
-Open the `CameraRotate` script in your script editor and type or copy and paste the following code. 
+Open the `CameraRotate` script in your script editor and type or copy and paste the following code:
 
 --- code ---
 ---
@@ -57,6 +57,6 @@ Save your script and switch back to the Unity editor.
 
 --- /collapse ---
 
-In the Inspector set the 'Ball' variable of the `CameraRotate` script by dragging the sphere from the Hierarchy window onto the box. 
+In the Inspector, set the 'Ball' variable of the `CameraRotate` script by dragging the sphere from the Hierarchy window onto the box. 
 
-![The CameraRotate component with the Ball object set correctly.](images/camera-rotate-component.png)
+![The CameraRotate component with the 'Ball' object set correctly.](images/camera-rotate-component.png)
